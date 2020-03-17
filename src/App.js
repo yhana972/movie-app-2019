@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+const foodLike = [
+  {
+    id:1,
+    name : "kimchi",
+    image: "https://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/Kimchi.jpg?itok=5WuwwXnQ&mtime=1378968122"
+  },
+  {
+    id:2,
+    name : "kimbap",
+    image: "https://www.seriouseats.com/recipes/assets_c/2009/09/20090723-kimbap-intro-thumb-625xauto-33859.jpg"
+  },
+  {
+    id:3,
+    name : "soup",
+    image: "https://mylovelylittlelunchbox.com/wp-content/uploads/2017/05/IMG_0680.jpg"
+  },
+  {
+    id:4,
+    name : "curry",
+    image: "https://www.cookingclassy.com/wp-content/uploads/2018/08/chicken-curry-11.jpg"
+  }
+];
+
+function Food({name, picture}){
+  return(
+    <div>
+      <h1>I like {name}</h1>
+      <img src={picture} alt={name}/>
+    </div>
+  ); 
+}
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  return(
+    <div>
+      {foodLike.map(dish =>( //dish는 object
+        <Food key={dish.id} name={dish.name} picture={dish.image}/>
+      ))}
     </div>
-  );
+  ); 
 }
 
 export default App;
